@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import auth from '../../store/auth';
 import users from '../../store/users';
 
 function RegistrationForm() {
@@ -15,7 +16,8 @@ function RegistrationForm() {
   });
 
   const onSubmit = (data?: any) => {
-    users.addNewUser(data);
+    console.log(data);
+    auth.registrationNewUser(data);
   };
 
   return (
@@ -24,15 +26,25 @@ function RegistrationForm() {
         <form className='col s12' onSubmit={handleSubmit(onSubmit)}>
           <div className='row'>
             <div className='input-field col s12'>
-              <input id='email' type='email' className='validate' />
-              <label htmlFor='email'>Email</label>
+              <input
+                {...register('email')}
+                id='email'
+                type='email'
+                className='validate'
+                placeholder='email'
+              />
             </div>
           </div>
 
           <div className='row'>
             <div className='input-field col s12'>
-              <input id='password' type='password' className='validate' />
-              <label htmlFor='password'>Password</label>
+              <input
+                {...register('password')}
+                id='password'
+                type='password'
+                className='validate'
+                placeholder='password'
+              />
             </div>
           </div>
           <button className='btn green' type='submit'>

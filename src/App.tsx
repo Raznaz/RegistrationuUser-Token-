@@ -10,10 +10,10 @@ function App() {
   return (
     <div className='container'>
       <Header />
-      {/* <RegistrationPage /> */}
+      <RegistrationPage />
       <UserList />
       <hr />
-      <AddUser />
+      {/* <AddUser /> */}
     </div>
   );
 }
